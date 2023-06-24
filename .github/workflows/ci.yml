@@ -32,6 +32,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:   
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
       - name: Prepare env for testing
         shell: pwsh
         run: Install-Module Pester -Force -Scope CurrentUser
@@ -42,7 +45,7 @@ jobs:
           Invoke-Pester -OutputFile ./test-results.xml -OutputFormat NUnitXml
       
       - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v2
+        uses: EnricoMi/publish-unit-test-result-action/composite@v2
         if: always()
         with:
           files: |
