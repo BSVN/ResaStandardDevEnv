@@ -16,7 +16,7 @@ BeforeAll {
     }
 
     # Dot sourcing main script
-    . $PSCommandPath.Replace('.Tests.ps1','.ps1').Replace('.Test','').Replace('Test','Source')
+    . .\Source\WindowsTerminal\Install-GitHubModule.ps1
 
     . .\Source\WindowsTerminal\Uninstall-GitHubModule.ps1
 }
