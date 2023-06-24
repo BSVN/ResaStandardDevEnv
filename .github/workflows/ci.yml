@@ -15,7 +15,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  # This workflow contains a job called "build"
   build:
     # The type of runner that the job will run on
     runs-on: windows-latest
@@ -25,6 +25,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+  # This workflow contains a job called "build"
+  test:
+     # The type of runner that the job will run on
+    runs-on: windows-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:   
       - name: Prepare env for testing
         shell: pwsh
         run: Install-Module Pester -Force -Scope CurrentUser
@@ -32,4 +39,11 @@ jobs:
       - name: Test scripts
         shell: pwsh
         run: |
-          Invoke-Pester -EnableExit
+          Invoke-Pester -OutputFile ./test-results.xml -OutputFormat NUnitXml
+      
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: |
+            test-results.xml
