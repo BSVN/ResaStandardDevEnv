@@ -1,6 +1,6 @@
 # ITNOA
 
-Set-Variable -Name PROFILE_OPTIONS -Visibility Private -Option Constant -Scope Script -Value @"
+New-Variable -Name PROFILE_OPTIONS -Visibility Private -Option Constant -Scope Script -Value @"
 # Enable PowerShellForGitHub Module
 
 Import-Module PowerShellForGitHub
