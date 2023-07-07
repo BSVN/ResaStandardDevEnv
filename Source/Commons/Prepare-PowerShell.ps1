@@ -8,12 +8,12 @@ if (-not (Test-Path $PROFILE)) {
 
 Install-PackageProvider WinGet -Force -Scope CurrentUser
 
-#if (Get-Module -Name 'PSWinGlue' -ListAvailable) {
-#    Write-Information 'PSWinGlue Module available in your system'
-#}
-#else {
-#    Install-Module -Name PSWinGlue
-#}
+if (Get-Module -Name 'PSWinGlue' -ListAvailable) {
+    Write-Information 'PSWinGlue Module available in your system'
+}
+else {
+    Install-Module -Name PSWinGlue
+}
 
 # Comment for bug https://github.com/microsoft/winget-cli/issues/3413
 #if (Get-Module -Name 'Microsoft.WinGet.Client' -ListAvailable) {
