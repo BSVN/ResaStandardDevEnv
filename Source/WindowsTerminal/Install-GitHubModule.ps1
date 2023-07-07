@@ -1,6 +1,6 @@
 # ITNOA 
 
-function script:Add-ToProfile() {
+function script:Add-ToProfile {
     New-Variable -Name PROFILE_OPTIONS -Visibility Private -Option Constant -Scope Local -Value @"
 # Enable PowerShellForGitHub Module
 
@@ -13,7 +13,7 @@ Import-Module PowerShellForGitHub
     }
 }
 
-function global:Install-GitHubModule() {
+function global:Install-GitHubModule {
     Install-Module -Name PowerShellForGitHub -Confirm:$false -AcceptLicense
 
     Add-ToProfile
