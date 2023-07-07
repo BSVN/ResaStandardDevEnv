@@ -1,3 +1,5 @@
+ITNOA
+
 # ResaStandardDevEnv
 Resa Standard Development Environment Bootstrapping 
 
@@ -12,5 +14,6 @@ We follow configuration for [Windows Terminal](https://github.com/microsoft/term
 * Install [winfetch](https://github.com/kiedtl/winfetch)
   * For automate installing and applying configuration run `Install-WinFetch.ps1` in `Source/WindowsTerminal/`
 * Install [PowerType](https://github.com/AnderssonPeter/PowerType) for enhance PowerShell auto completion
+  * For automate installing and applying configuration run `Install-PowerType.ps1` in `Source/WindowsTerminal/`
 * Install [PowerShellForGitHub](https://github.com/microsoft/PowerShellForGitHub) for native PowerShell speaking to GitHub
   * For automate installing run `Install-GitHubModule.ps1` in `Source/WindowsTerminal/`
